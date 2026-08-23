@@ -1,0 +1,9 @@
+{
+  "name": "stamp-it-fact-checker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Finfluencer claim fact-checker prototype for the WIF AI Summit hackathon",
+  "engines": {
+    "node": ">=18"
+  }
+}
