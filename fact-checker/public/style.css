@@ -18,9 +18,12 @@
   --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--ink-navy);
@@ -33,6 +36,7 @@ body {
 }
 
 /* ---------- ticker ---------- */
+
 .ticker {
   background: var(--ink-navy-deep);
   border-bottom: 1px solid rgba(232, 227, 214, 0.12);
@@ -56,15 +60,23 @@ body {
 }
 
 @keyframes scroll-left {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ticker__track { animation: none; }
+  .ticker__track {
+    animation: none;
+  }
 }
 
 /* ---------- layout ---------- */
+
 .wrap {
   max-width: 640px;
   margin: 0 auto;
@@ -101,26 +113,37 @@ body {
   margin: 0;
 }
 
-/* ---------- input card (receipt paper) ---------- */
+/* ---------- input card ---------- */
+
 .input-card {
   background: var(--paper);
   color: var(--text-ink);
   border-radius: 3px;
   padding: 24px 24px 20px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   position: relative;
 }
 
 .input-card::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 4px;
   background: repeating-linear-gradient(
     90deg,
     var(--ink-navy) 0 10px,
     transparent 10px 20px
   );
+}
+
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group:last-of-type {
+  margin-bottom: 0;
 }
 
 .input-card label {
@@ -133,10 +156,9 @@ body {
   margin-bottom: 10px;
 }
 
-.input-card textarea {
+.input-card textarea,
+.input-card input[type="url"] {
   width: 100%;
-  min-height: 110px;
-  resize: vertical;
   border: 1px solid var(--paper-line);
   background: #fff;
   border-radius: 2px;
@@ -145,12 +167,31 @@ body {
   font-size: 15px;
   line-height: 1.5;
   color: var(--text-ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.input-card textarea:focus-visible {
+.input-card textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.input-card input[type="url"] {
+  min-height: 48px;
+}
+
+.input-card textarea:focus-visible,
+.input-card input[type="url"]:focus-visible {
   outline: 2px solid var(--ink-navy);
   outline-offset: 2px;
+  border-color: var(--ink-navy);
 }
+
+.input-card textarea::placeholder,
+.input-card input[type="url"]::placeholder {
+  color: #8A8579;
+}
+
+/* ---------- input controls ---------- */
 
 .input-row {
   display: flex;
@@ -164,6 +205,7 @@ body {
 .hint {
   font-size: 12.5px;
   color: var(--text-muted);
+  max-width: 36ch;
 }
 
 #checkBtn {
@@ -179,29 +221,53 @@ body {
   transition: transform 0.12s ease, background 0.15s ease;
 }
 
-#checkBtn:hover { background: #182640; }
-#checkBtn:active { transform: scale(0.96); }
-#checkBtn:focus-visible { outline: 2px solid var(--stamp-amber); outline-offset: 3px; }
-#checkBtn:disabled { opacity: 0.6; cursor: default; transform: none; }
+#checkBtn:hover {
+  background: #182640;
+}
+
+#checkBtn:active {
+  transform: scale(0.96);
+}
+
+#checkBtn:focus-visible {
+  outline: 2px solid var(--stamp-amber);
+  outline-offset: 3px;
+}
+
+#checkBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+  transform: none;
+}
 
 /* ---------- result ---------- */
+
 .result {
   margin-top: 32px;
   background: var(--paper);
   color: var(--text-ink);
   border-radius: 3px;
   padding: 28px 24px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
   animation: settle 0.28s ease-out;
 }
 
 @keyframes settle {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .result { animation: none; }
+  .result {
+    animation: none;
+  }
 }
 
 .result.is-loading {
@@ -216,6 +282,8 @@ body {
   font-size: 14.5px;
 }
 
+/* ---------- stamp ---------- */
+
 .stamp {
   display: inline-block;
   font-family: var(--font-display);
@@ -229,10 +297,23 @@ body {
   margin-bottom: 18px;
 }
 
-.stamp--true { color: var(--stamp-teal); }
-.stamp--false { color: var(--stamp-red); }
-.stamp--misleading { color: var(--stamp-amber); }
-.stamp--unverified { color: var(--stamp-slate); }
+.stamp--true {
+  color: var(--stamp-teal);
+}
+
+.stamp--false {
+  color: var(--stamp-red);
+}
+
+.stamp--misleading {
+  color: var(--stamp-amber);
+}
+
+.stamp--unverified {
+  color: var(--stamp-slate);
+}
+
+/* ---------- claim ---------- */
 
 .result .claim-headline {
   font-size: 16px;
@@ -248,6 +329,8 @@ body {
   line-height: 1.6;
   margin: 0 0 8px;
 }
+
+/* ---------- correction ---------- */
 
 .correction {
   margin-top: 18px;
@@ -266,6 +349,34 @@ body {
   display: block;
   margin-bottom: 6px;
 }
+
+/* ---------- deeper explanation cards ---------- */
+
+.follow-up {
+  margin-top: 14px;
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 2px;
+  padding: 16px;
+}
+
+.follow-up .label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 7px;
+}
+
+.follow-up p {
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ---------- sources ---------- */
 
 .sources {
   margin-top: 20px;
@@ -299,10 +410,31 @@ body {
   color: var(--ink-navy);
 }
 
-.sources a:hover { color: var(--stamp-teal); }
+.sources a:hover {
+  color: var(--stamp-teal);
+}
+
+/* ---------- mobile ---------- */
 
 @media (max-width: 480px) {
-  .wrap { padding: 40px 16px 72px; }
-  .input-row { flex-direction: column; align-items: stretch; }
-  #checkBtn { width: 100%; }
+  .wrap {
+    padding: 40px 16px 72px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #checkBtn {
+    width: 100%;
+  }
+
+  .result {
+    padding: 24px 20px;
+  }
+
+  .stamp {
+    font-size: 18px;
+  }
 }
