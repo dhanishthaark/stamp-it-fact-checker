@@ -4,11 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Stamp It — Finfluencer Fact Checker</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="ticker" aria-hidden="true">
@@ -27,26 +30,65 @@
 </div>
 
 <main class="wrap">
+
   <header class="hero">
     <p class="eyebrow">Fact Checker</p>
-    <h1>Screenshotted a claim?<br>Stamp it before you believe it.</h1>
-    <p class="sub">Paste what a finfluencer said — a caption, a claim, a line from a transcript — and get a straight answer: true, false, or misleading. In plain English, not a Wikipedia page.</p>
+
+    <h1>
+      Screenshotted a claim?<br>
+      Stamp it before you believe it.
+    </h1>
+
+    <p class="sub">
+      Paste what a finfluencer said — a caption, a claim, a line from a transcript — and get a straight answer: true, false, or misleading. In plain English, not a Wikipedia page.
+    </p>
   </header>
 
   <section class="input-card">
+
     <label for="claim">What did they say?</label>
-    <textarea id="claim" placeholder="e.g. &quot;France is raising taxes on stock trades by 20% starting next month&quot;" maxlength="4000"></textarea>
+
+    <textarea
+      id="claim"
+      placeholder="e.g. &quot;France is raising taxes on stock trades by 20% starting next month&quot;"
+      maxlength="4000"
+    ></textarea>
+
+    <label for="sourceUrl" class="source-label">
+      Where did you see it?
+    </label>
+
+    <input
+      id="sourceUrl"
+      class="url-input"
+      type="url"
+      placeholder="Paste a TikTok, Instagram, article or other link (optional)"
+    />
+
     <div class="input-row">
-      <span class="hint">Works on a claim, a caption, or a pasted transcript line.</span>
+
+      <span class="hint">
+        Add a link if you have the original post.
+      </span>
+
       <button id="checkBtn" type="button">
         <span class="btn-label">Stamp it</span>
       </button>
+
     </div>
+
   </section>
 
-  <section id="result" class="result" hidden aria-live="polite"></section>
+  <section
+    id="result"
+    class="result"
+    hidden
+    aria-live="polite"
+  ></section>
+
 </main>
 
 <script src="script.js"></script>
+
 </body>
 </html>
