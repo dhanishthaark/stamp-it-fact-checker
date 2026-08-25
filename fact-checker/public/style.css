@@ -438,3 +438,122 @@ body {
     font-size: 18px;
   }
 }
+
+/* ---------- myth vs fact log ---------- */
+
+.myth-log {
+  margin-top: 32px;
+  background: var(--paper);
+  color: var(--text-ink);
+  border-radius: 3px;
+  padding: 24px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.myth-log__header {
+  margin-bottom: 18px;
+}
+
+.myth-log__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0 0 6px;
+  color: var(--text-ink);
+}
+
+.myth-log__subtitle {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.myth-log__empty {
+  padding: 16px;
+  border: 1px dashed var(--paper-line);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: var(--font-mono);
+}
+
+.myth-log__entry {
+  padding: 18px 0;
+  border-top: 1px dashed var(--paper-line);
+}
+
+.myth-log__entry:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.myth-log__date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.myth-log__verdict {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  transform: rotate(-2deg);
+  margin-bottom: 10px;
+}
+
+.myth-log__verdict--true {
+  color: var(--stamp-teal);
+}
+
+.myth-log__verdict--false {
+  color: var(--stamp-red);
+}
+
+.myth-log__verdict--misleading {
+  color: var(--stamp-amber);
+}
+
+.myth-log__claim {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+
+.myth-log__explanation {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.myth-log__source {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.myth-log__source a {
+  color: var(--ink-navy);
+  word-break: break-word;
+}
+
+.myth-log__source a:hover {
+  color: var(--stamp-teal);
+}
+
+@media (max-width: 480px) {
+  .myth-log {
+    padding: 20px;
+  }
+
+  .myth-log__title {
+    font-size: 20px;
+  }
+}
